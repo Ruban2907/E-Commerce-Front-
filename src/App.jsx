@@ -5,6 +5,7 @@ import './App.css'
 import { BrowserRouter, Route, Router, Routes } from 'react-router-dom'
 import Index from '../src/page/home'
 import About from '../src/page/about'
+import Blog from './page/blog'
 import Header from './shared/components/Header'
 import Final from './shared/components/Final'
 function App() {
@@ -17,6 +18,7 @@ function App() {
       <Routes>
         <Route path='/' element={ <Index/> }/>
         <Route path='/about' element={ <About/> }/>
+        <Route path='/stories' element={ <Blog/>} />
       </Routes>
       <Final/>
       </BrowserRouter>
