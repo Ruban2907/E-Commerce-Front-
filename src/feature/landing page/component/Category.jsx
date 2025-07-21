@@ -21,6 +21,7 @@ const Category = () => {
                         <h1 className="text-sm tracking-widest font-medium underline underline-offset-4 cursor-pointer">
                             {cat.Pname}
                         </h1> 
+                        
                         <p className="text-green-600 text-sm tracking-widest font-medium  cursor-pointer">{cat.price}</p> 
                         <p className="text-red-700  ">{cat.color}</p> 
                     </div>

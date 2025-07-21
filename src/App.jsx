@@ -8,7 +8,8 @@ import About from '../src/page/about'
 import Blog from './page/blog'
 import Header from './shared/components/Header'
 import Final from './shared/components/Final'
-import Contact from './page/contact.jsx'
+import Contact from './page/contact/index.jsx'
+import Lust from './page/listing/index.jsx'
 function App() {
   const [count, setCount] = useState(0)
 
@@ -21,6 +22,7 @@ function App() {
         <Route path='/about' element={ <About/> }/>
         <Route path='/stories' element={ <Blog/>} />
         <Route path='/contact' element={ <Contact/>} />
+        <Route path='/listing' element={ <Lust/>} />
       </Routes>
       <Final/>
       </BrowserRouter>

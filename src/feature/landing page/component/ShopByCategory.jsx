@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 const categories =  [
     {Pname: "SHIRTS",  img: "public/assets/shirts.png"},
@@ -33,11 +34,14 @@ const ShopByCategory = () => {
             <div className="grid lg:grid-cols-6 md:grid-cols-3 sm:grid-cols-1 justify-center items-center gap-4 px-8">
                 {categories.map((cat) => (
                     <div key={cat.Pname} className="flex flex-col items center w-full" >
+                        <NavLink to="/listing">
                         <img src = {cat.img} alt={cat.Pname}
                             className="w-full h-86 object-cover rounded-md shadow-sm mb-3" />
+
                         <span className="text-sm tracking-widest font-medium underline underline-offset-4 cursor-pointer">
                             {cat.Pname}
                         </span>  
+                        </NavLink>
                     </div>
                 ))}
             </div>
@@ -57,9 +61,12 @@ const ShopByCategory = () => {
                 <h2 className="text-white text-3xl font-semibold mb-6 drop-shadow-lg text-center">
                   {item.title}
                 </h2>
+                <NavLink to="/listing">
                 <button className="bg-white text-black px-8 py-2 font-medium text-base rounded-none tracking-wide shadow hover:bg-gray-100 transition">
                   {item.button}
                 </button>
+                </NavLink>
+                
               </div>
             </div>
           ))}
