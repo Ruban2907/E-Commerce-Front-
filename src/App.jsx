@@ -1,33 +1,45 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import { BrowserRouter, Route, Router, Routes } from 'react-router-dom'
-import Index from '../src/page/home'
-import About from '../src/page/about'
-import Blog from './page/blog'
-import Header from './shared/components/Header'
-import Final from './shared/components/Final'
-import Contact from './page/contact/index.jsx'
-import Lust from './page/listing/index.jsx'
-function App() {
-  const [count, setCount] = useState(0)
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Sign from './page/sign-up/index.jsx';
+import Login from './page/login/index.jsx';
+import Index from './page/home';
+import About from './page/about';
+import Blog from './page/blog';
+import Header from './shared/components/Header';
+import Final from './shared/components/Final';
+import Contact from './page/contact/index.jsx';
+import Lust from './page/listing/index.jsx';
+import './App.css';
 
+const withLayout = (Component) => {
+  return function WrappedComponent() {
+    return (
+      <>
+        <Header />
+        <Component />
+        <Final />
+      </>
+    );
+  };
+};
+
+const HomePage = withLayout(Index);
+const AboutPage = withLayout(About);
+const BlogPage = withLayout(Blog);
+const ContactPage = withLayout(Contact);
+const ListingPage = withLayout(Lust);
+
+export default function AppRoutes() {
   return (
-    <>
-      <BrowserRouter>
-      <Header/>
+    <BrowserRouter>
       <Routes>
-        <Route path='/' element={ <Index/> }/>
-        <Route path='/about' element={ <About/> }/>
-        <Route path='/stories' element={ <Blog/>} />
-        <Route path='/contact' element={ <Contact/>} />
-        <Route path='/listing' element={ <Lust/>} />
+        <Route path="/" element={<Login />} />
+        <Route path="/sign" element={<Sign />} />
+        <Route path="/home" element={<HomePage />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/stories" element={<BlogPage />} />
+        <Route path="/contact" element={<ContactPage />} />
+        <Route path="/listing" element={<ListingPage />} />
       </Routes>
-      <Final/>
-      </BrowserRouter>
-    </>
-  )
+    </BrowserRouter>
+  );
 }
-
-export default App
